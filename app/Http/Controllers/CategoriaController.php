@@ -4,10 +4,10 @@ namespace sisVentas\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//use sisVentas\Http\Request;
+use sisVentas\Http\Requests;
 use sisVentas\Categoria;
 use Illuminate\Support\Facades\Redirect;
-use sisVentas\Http\Request\CategoriaFormRequest;
+use sisVentas\Http\Requests\CategoriaFormRequest;
 use DB;
 
 
@@ -37,7 +37,7 @@ class CategoriaController extends Controller
 
     public function store(CategoriaFormRequest $request)
     {
-        $categoria= new Categoria;
+        $categoria=new Categoria;
         $categoria->nombre=$request->get('nombre');
         $categoria->descripcion=$request->get('descripcion');
         $categoria->condicion='1';
@@ -58,7 +58,7 @@ class CategoriaController extends Controller
 
     public function update(CategoriaFormRequest $request, $id)
     {
-        $categoria=Categoria::findOrFile($id);
+        $categoria=Categoria::findOrFail($id);
         $categoria->nombre=$request->get('nombre');
         $categoria->descripcion=$request->get('descripcion');
         $categoria->update();

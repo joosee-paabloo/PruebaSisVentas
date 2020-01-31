@@ -18,7 +18,4 @@ class Categoria extends Model
         'condicion'
     ];
 
-    protected $guarded=[
-
-    ];
 }

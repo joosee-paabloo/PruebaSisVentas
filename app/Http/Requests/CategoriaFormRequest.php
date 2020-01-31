@@ -2,6 +2,7 @@
 
 namespace sisVentas\Http\Requests;
 
+use sisVentas\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CategoriaFormRequest extends FormRequest

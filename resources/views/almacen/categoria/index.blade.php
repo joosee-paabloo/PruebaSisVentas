@@ -23,7 +23,7 @@
                     <td>{{ $cat->nombre }}</td>
                     <td>{{ $cat->descripcion }}</td>
                     <td>
-                        <a href=""><button class="btn btn-info">Editar</button></a>
+                        <a href="{{URL::action('CategoriaController@edit',$cat->idcategoria)}}"><button class="btn btn-info">Editar</button></a>
                         <a href=""><button class="btn btn-danger">Eliminar</button></a>
                     </td>
                 </tr>
