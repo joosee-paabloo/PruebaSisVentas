@@ -1,0 +1,29 @@
+[33mcommit a662da6c9ebbf52adfce512dfc527d52a5b25686[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: pablo <pablo_jose12@hotmail.es>
+Date:   Fri Jan 31 11:28:03 2020 -0600
+
+    se realizo el edit y create en registros de categoria
+
+[33mcommit aea06e9e6eba42da171cd78e631f5d436b2fd1f3[m
+Author: pablo <pablo_jose12@hotmail.es>
+Date:   Thu Jan 30 14:50:57 2020 -0600
+
+    listado de busqueda y paginacion de servicio y tabla de registros
+
+[33mcommit 5d186e526ea4e9cc18146204470c2651ae656df8[m
+Author: pablo <pablo_jose12@hotmail.es>
+Date:   Thu Jan 30 13:00:11 2020 -0600
+
+    creacion de vista index y plantilla general
+
+[33mcommit a6be6ec4a5bb6d3248ebcef6ce63fa61eae7fb6b[m
+Author: pablo <pablo_jose12@hotmail.es>
+Date:   Thu Jan 30 11:38:24 2020 -0600
+
+    se creo el controlador de Categoria y Request de la mima
+
+[33mcommit 326bc2b0c098debac74757eeb3f03e51675bd5fc[m
+Author: pablo <pablo_jose12@hotmail.es>
+Date:   Thu Jan 30 08:56:25 2020 -0600
+
+    primera creacion de conexion con BD, cambio a español
