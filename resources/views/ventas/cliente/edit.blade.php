@@ -2,7 +2,7 @@
 @section ('contenido')
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <h3>Editar Articulo: {{ $articulo->nombre }}</h3>
+            <h3>Editar Cliente: {{ $persona->nombre }}</h3>
             @if (count($errors)>0)
             <div class="alert alert-danger">
                 <ul>
@@ -15,55 +15,58 @@
         </div>
     </div>
 
-            {!!Form::model($articulo,['method'=>'PATCH','route'=>['articulo.update',$articulo->idarticulo],'files'=>'true'])!!}
+            {!!Form::model($persona,['method'=>'PATCH','route'=>['cliente.update',$persona->idpersona]])!!}
             {{Form::token()}}
 
     <div class="row">
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" require value="{{$articulo->nombre}}" class="form-control">            
+                <input type="text" name="nombre" require value="{{$persona->nombre}}" class="form-control" placeholder="Nombre...">            
             </div>
         </div>
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
-                <label>Categoría</label>
-                <select name="idcategoria" class="form-control">
-                    @foreach ($categorias as $cat)
-                        @if ($cat->idcategoria==$articulo->idcategoria)
-                            <option value="{{$cat->idcategoria}}" selected>{{$cat->nombre}}</option>
-                        @else
-                            <option value="{{$cat->idcategoria}}">{{$cat->nombre}}</option>
-                        @endif
-                    @endforeach
+                <label for="direccion">Direccion</label>
+                <input type="text" name="direccion" value="{{$persona->direccion}}" class="form-control" placeholder="Direccion...">            
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+            <div class="form-group">
+                <label>Documento</label>
+                <select name="tipo_documento" class="form-control">
+                    @if ($persona->tipo_documento=='DPI')
+                        <option value="DPI" selected>DPI</option>
+                        <option value="Cedula">Cedula</option>
+                        <option value="PAS">Pasaporte</option>
+                    @elseif ($persona->tipo_documento=='Cedula')
+                        <option value="DPI" >DPI</option>
+                        <option value="Cedula" selected>Cedula</option>
+                        <option value="PAS">Pasaporte</option>
+                    @else
+                        <option value="DPI" >DPI</option>
+                        <option value="Cedula" >Cedula</option>
+                        <option value="PAS" selected>Pasaporte</option>
+                    @endif
                 </select>
             </div>
         </div>
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
-                <label for="codigo">Código</label>
-                <input type="text" name="codigo" require value="{{$articulo->codigo}}" class="form-control">            
+                <label for="num_documento">Numero de Documento</label>
+                <input type="text" name="num_documento" value="{{$persona->num_documento}}" class="form-control" placeholder="Numero de Documento...">            
             </div>
         </div>
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
-                <label for="stock">Stock</label>
-                <input type="text" name="stock" require value="{{$articulo->stock}}" class="form-control">            
+                <label for="telefono">Teléfono</label>
+                <input type="text" name="telefono" value="{{$persona->telefono}}" class="form-control" placeholder="Teléfono...">            
             </div>
         </div>
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
-                <label for="descripcion">Descripción</label>
-                <input type="text" name="descripcion" value="{{$articulo->descripcion}}" class="form-control" placeholder="Descripción de Artículo...">            
-            </div>
-        </div>
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-            <div class="form-group">
-                <label for="imagen">Imagen</label>
-                <input type="file" name="imagen" class="form-control">
-                @if (($articulo->imagen) !="")
-                    <img src="{{asset('imagenes/articulos/'.$articulo->imagen)}}" height="300px" width="300px">
-                @endif
+                <label for="email">Email</label>
+                <input type="email" name="email" value="{{$persona->email}}" class="form-control" placeholder="Email...">            
             </div>
         </div>
         
