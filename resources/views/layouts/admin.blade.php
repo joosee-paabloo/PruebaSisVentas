@@ -193,7 +193,7 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>
-        <strong>Copyright &copy; 2015-2020 <a href="www.incanatoit.com">IncanatoIT</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2020 <a href="www.cig.org.gt">Cig.org.gt</a>. PabloRodriguez</strong> All rights reserved.
       </footer>
 
       

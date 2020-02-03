@@ -19,13 +19,14 @@ class ArticuloController extends Controller
 
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $query=trim($request->get('searchText'));
         $articulos=DB::table('articulo as a')
         ->join('categoria as c','a.idcategoria','=','c.idcategoria')
         ->select('a.idarticulo','a.nombre','a.codigo','a.stock','c.nombre as categoria','a.descripcion','a.imagen','a.estado')
         ->where('a.nombre','LIKE','%'.$query.'%')
+        ->orwhere('a.codigo','LIKE','%'.$query.'%')
         ->orderBy('a.idarticulo','desc')
         ->paginate(7);
         return view('almacen.articulo.index',["articulos"=>$articulos,"searchText"=>$query]);
@@ -48,11 +49,13 @@ class ArticuloController extends Controller
         $articulo->stock=$request->get('stock');
         $articulo->descripcion=$request->get('descripcion');
         $articulo->estado='Activo';
-        if(Input::hasFile('imagen')){
+
+        if (Input::hasFile('imagen')){
             $file=Input::file('imagen');
             $file->move(public_path().'/imagenes/articulos/',$file->getClientOriginalName());
             $articulo->imagen=$file->getClientOriginalName();
         }
+
         $articulo->save();
         return Redirect::to('almacen/articulo');
     }
