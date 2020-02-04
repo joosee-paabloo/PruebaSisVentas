@@ -20,15 +20,19 @@ class ProveedorController extends Controller
 
     public function index(Request $request)
     {
-        $query=trim($request->get('searchText'));
-        $personas=DB::table('persona')
-        ->where('nombre','LIKE','%'.$query.'%')
-        ->where('tipo_persona','=','Proveedor')
-        ->orwhere('num_documento','LIKE','%'.$query.'%')
-        ->where('tipo_persona','=','Proveedor')
-        ->orderBy('idpersona','desc')
-        ->paginate(7);
-        return view('compras.proveedor.index',["personas"=>$personas,"searchText"=>$query]);
+        if ($request)
+        {
+            $query=trim($request->get('searchText'));
+            $personas=DB::table('persona')
+            ->where('nombre','LIKE','%'.$query.'%')
+            ->where('tipo_persona','=','Proveedor')
+            ->orwhere('num_documento','LIKE','%'.$query.'%')
+            ->where('tipo_persona','=','Proveedor')
+            ->orderBy('idpersona','desc')
+            ->paginate(7);
+            return view('compras.proveedor.index',["personas"=>$personas,"searchText"=>$query]);
+            $query=trim($request->get('searchText'));
+        }
     }
 
     public function create()
