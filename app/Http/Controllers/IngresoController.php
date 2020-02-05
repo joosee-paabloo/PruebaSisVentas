@@ -5,7 +5,7 @@ namespace sisVentas\Http\Controllers;
 use Illuminate\Http\Request;
 
 use sisVentas\Http\Requests;
-use Illuminate\Supoort\Facades\Redirect;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use sisVentas\Http\Requests\IngresoFormRequest;
 use sisVentas\Ingreso;
@@ -44,7 +44,7 @@ class IngresoController extends Controller
     {
         $personas=DB::table('persona')->where('tipo_persona','=','Proveedor')->get();
         $articulos=DB::table('articulo as art')
-            ->select(DB::raw('CONCAT(art.codigo," ",art.nombre) AS articulo'),'art.idarticulo')
+            ->select(DB::raw('CONCAT(art.codigo, " ",art.nombre) AS articulo'),'art.idarticulo')
             ->where('art.estado','=','Activo')
             ->get();
         return view("compras.ingreso.create",["personas"=>$personas,"articulos"=>$articulos]);
@@ -59,7 +59,7 @@ class IngresoController extends Controller
             $ingreso->idproveedor=$request->get('idproveedor');
             $ingreso->tipo_comprobante=$request->get('tipo_comprobante');
             $ingreso->serie_comprobante=$request->get('serie_comprobante');
-            $ingresos->num_comprobante=$request->get('num_comprobante');
+            $ingreso->num_comprobante=$request->get('num_comprobante');
             
             $mytime=Carbon::now('America/Guatemala');
             $ingreso->fecha_hora=$mytime->toDateTimeString();
