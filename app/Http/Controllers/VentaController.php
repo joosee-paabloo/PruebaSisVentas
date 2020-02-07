@@ -5,10 +5,9 @@ namespace sisVentas\Http\Controllers;
 use Illuminate\Http\Request;
 
 use sisVentas\Http\Requests;
-
-use Illimunate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
-use sisVentas\Http\Request\VentaFormRequest;
+use sisVentas\Http\RequestS\VentaFormRequest;
 use sisVentas\Venta;
 use sisVentas\DetalleVenta;
 use DB;
